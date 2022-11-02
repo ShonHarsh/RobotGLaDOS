@@ -6,5 +6,6 @@
 # Exclude local dependencies, caches and project settings
 *.local
 *.objects
+*.project
 *.settings
 *.tmh
