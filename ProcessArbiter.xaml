@@ -1,13 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="ProcessArbiter" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-  <x:Members>
-    <x:Property Name="in_DataTableConfigData" Type="InArgument(sd:DataTable)" />
-    <x:Property Name="in_DataTableMessages" Type="InArgument(sd:DataTable)" />
-  </x:Members>
-  <VisualBasic.Settings>
-    <x:Null />
-  </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1115,2537</sap:VirtualizedContainerService.HintSize>
-  <sap2010:WorkflowViewState.IdRef>ProcessArbiter_1</sap2010:WorkflowViewState.IdRef>
+<Activity mc:Ignorable="sap sap2010" x:Class="ProcessArbiter" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1115,1838" sap2010:WorkflowViewState.IdRef="ProcessArbiter_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="30">
       <x:String>System.Activities</x:String>
@@ -88,14 +79,10 @@
       <AssemblyReference>System.Collections</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="" DisplayName="ProcessArbiter" sap:VirtualizedContainerService.HintSize="718,1188" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="" DisplayName="ProcessArbiter" sap:VirtualizedContainerService.HintSize="719,1083" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="dtConfigDataFiltered" />
-      <Variable x:TypeArguments="scg:List(x:String)" Name="listPlatforms">
-        <Variable.Default>
-          <VisualBasicValue x:TypeArguments="scg:List(x:String)" ExpressionText="New List(Of String)" />
-        </Variable.Default>
-      </Variable>
+      <Variable x:TypeArguments="scg:List(x:String)" Default="[New List(Of String)]" Name="listPlatforms" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -103,14 +90,9 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="" DisplayName="Framework\GetPlatformList.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="656,153" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Framework\GetPlatformList.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="This workflow takes a data table and filters the platforms into a list." DisplayName="Framework\GetPlatformList.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="657,164" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Framework\GetPlatformList.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="sd:DataTable" x:Key="in_DataTableConfigData">
-          <VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="in_DataTableConfigData" />
-        </InArgument>
-        <OutArgument x:TypeArguments="scg:List(x:String)" x:Key="out_ListPlatforms">
-          <VisualBasicReference x:TypeArguments="scg:List(x:String)" ExpressionText="listPlatforms" />
-        </OutArgument>
+        <OutArgument x:TypeArguments="scg:List(x:String)" x:Key="out_ListPlatforms">[listPlatforms]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -118,57 +100,33 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:InvokeWorkflowFile>
-    <Sequence sap2010:Annotation.AnnotationText="This sequence iterates over the platforms in the ListPlatforms, starts the platform and each sub-operation." DisplayName="Sequence Platform Iteration" sap:VirtualizedContainerService.HintSize="656,842" sap2010:WorkflowViewState.IdRef="Sequence_8">
+    <Sequence sap2010:Annotation.AnnotationText="This sequence iterates over the platforms in the ListPlatforms, starts the platform and each sub-operation." DisplayName="Sequence Platform Iteration" sap:VirtualizedContainerService.HintSize="657,726" sap2010:WorkflowViewState.IdRef="Sequence_8">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each Platform In listPlatforms" sap:VirtualizedContainerService.HintSize="594,689" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[listPlatforms]">
+      <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each Platform In listPlatforms" sap:VirtualizedContainerService.HintSize="595,573" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[listPlatforms]">
         <ui:ForEach.Body>
           <ActivityAction x:TypeArguments="x:String">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="x:String" Name="platform" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Body Platform in listPlatforms" sap:VirtualizedContainerService.HintSize="558,555" sap2010:WorkflowViewState.IdRef="Sequence_9">
+            <Sequence DisplayName="Body Platform in listPlatforms" sap:VirtualizedContainerService.HintSize="559,439" sap2010:WorkflowViewState.IdRef="Sequence_9">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <Sequence sap:VirtualizedContainerService.HintSize="496,433" sap2010:WorkflowViewState.IdRef="Sequence_10">
-                <sap:WorkflowViewStateService.ViewState>
-                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  </scg:Dictionary>
-                </sap:WorkflowViewStateService.ViewState>
-                <Assign sap2010:Annotation.AnnotationText="Set workign data table." DisplayName="Assign Working Data Table" sap:VirtualizedContainerService.HintSize="434,101" sap2010:WorkflowViewState.IdRef="Assign_3">
-                  <Assign.To>
-                    <OutArgument x:TypeArguments="sd:DataTable">[dtConfigDataFiltered]</OutArgument>
-                  </Assign.To>
-                  <Assign.Value>
-                    <InArgument x:TypeArguments="sd:DataTable">[in_DataTableConfigData]</InArgument>
-                  </Assign.Value>
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                </Assign>
-                <ui:FilterDataTable DataTable="[dtConfigDataFiltered]" DisplayName="Filter Data Table Keep Platform Column" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="434,170" sap2010:WorkflowViewState.IdRef="FilterDataTable_4" OutputDataTable="[dtConfigDataFiltered]" SelectColumnsMode="Keep">
-                  <ui:FilterDataTable.Filters>
-                    <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
-                      <ui:FilterOperationArgument Column="{x:Null}" Operand="{x:Null}" BooleanOperator="And" Operator="LT" />
-                    </scg:List>
-                  </ui:FilterDataTable.Filters>
-                  <ui:FilterDataTable.SelectColumns>
-                    <scg:List x:TypeArguments="InArgument" Capacity="4">
-                      <InArgument x:TypeArguments="x:String">["Platform"]</InArgument>
-                    </scg:List>
-                  </ui:FilterDataTable.SelectColumns>
-                </ui:FilterDataTable>
-              </Sequence>
+              <Switch x:TypeArguments="x:String" DisplayName="Switch Platform" Expression="[platform]" sap:VirtualizedContainerService.HintSize="497,338" sap2010:WorkflowViewState.IdRef="Switch`1_2">
+                <ui:LogMessage x:Key="Custom" DisplayName="LogMessage Custom" sap:VirtualizedContainerService.HintSize="334,101" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Custom paltform case.&quot;]" />
+                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="GOG" DisplayName="GOG_Platform.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,122" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Platforms\GOG_Platform.xaml">
+                  <ui:InvokeWorkflowFile.Arguments>
+                    <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                  </ui:InvokeWorkflowFile.Arguments>
+                </ui:InvokeWorkflowFile>
+              </Switch>
             </Sequence>
           </ActivityAction>
         </ui:ForEach.Body>
