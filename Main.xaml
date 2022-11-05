@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1099,1579" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1115,2328" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="28">
       <x:String>System.Activities</x:String>
@@ -78,14 +78,13 @@
       <AssemblyReference>System.Private.Uri</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="s" DisplayName="Sequence Main" sap:VirtualizedContainerService.HintSize="555,1175" sap2010:WorkflowViewState.IdRef="Sequence_4">
+  <Sequence sap2010:Annotation.AnnotationText="The main entry point for the RobotGLaDOS, Genetic Lifeform and Disk Operating System." DisplayName="Sequence Main" sap:VirtualizedContainerService.HintSize="462,2263" sap2010:WorkflowViewState.IdRef="Sequence_4">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="strConfigFilePath" />
-      <Variable x:TypeArguments="x:String" Name="strWorkflowName" />
       <Variable x:TypeArguments="sd:DataTable" Name="dt_ConfigData" />
       <Variable x:TypeArguments="sd:DataTable" Name="dt_Messages" />
-      <Variable x:TypeArguments="x:String" Name="strConfigSheetNameData" />
-      <Variable x:TypeArguments="x:String" Name="strConfigSheetNameMessages" />
+      <Variable x:TypeArguments="x:String" Name="strConfigFileSheetNameData" />
+      <Variable x:TypeArguments="x:String" Name="strConfigFileSheetNameMessages" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -93,83 +92,61 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message RobotGLaDOS.Main.Begin;" sap:VirtualizedContainerService.HintSize="493,101" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;RobotGLaDOS.Main.Begin;&quot;]" />
-    <Sequence DisplayName="Sequence Initialization" sap:VirtualizedContainerService.HintSize="493,294" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <ui:LogMessage DisplayName="Log Message RobotGLaDOS.Main.Begin;" sap:VirtualizedContainerService.HintSize="400,101" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;RobotGLaDOS.Main.Begin;&quot;]" />
+    <Sequence sap2010:Annotation.AnnotationText="The initialization containds data points that need to be populated for the process to run.  These values are created as assets on cloud.uipath.com." DisplayName="Sequence Initialization" sap:VirtualizedContainerService.HintSize="400,1300" sap2010:WorkflowViewState.IdRef="Sequence_2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:MultipleAssign DisplayName="Multiple Assign Initialization" sap:VirtualizedContainerService.HintSize="431,172" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
-        <ui:MultipleAssign.AssignOperations>
-          <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
-            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
-              <ui:AssignOperation.To>
-                <OutArgument x:TypeArguments="x:String">[strConfigFilePath]</OutArgument>
-              </ui:AssignOperation.To>
-              <ui:AssignOperation.Value>
-                <InArgument x:TypeArguments="x:String">C:\Cloud\Dropbox\Code\Robotic Process Automation\Projects\Personal\RobotGLaDOS\Data\RobotGLaDOS-Config.xlsx</InArgument>
-              </ui:AssignOperation.Value>
-            </ui:AssignOperation>
-            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
-              <ui:AssignOperation.To>
-                <OutArgument x:TypeArguments="x:String">[strConfigSheetNameData]</OutArgument>
-              </ui:AssignOperation.To>
-              <ui:AssignOperation.Value>
-                <InArgument x:TypeArguments="x:String">Data</InArgument>
-              </ui:AssignOperation.Value>
-            </ui:AssignOperation>
-            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
-              <ui:AssignOperation.To>
-                <OutArgument x:TypeArguments="x:String">[strConfigSheetNameMessages]</OutArgument>
-              </ui:AssignOperation.To>
-              <ui:AssignOperation.Value>
-                <InArgument x:TypeArguments="x:String">Messages</InArgument>
-              </ui:AssignOperation.Value>
-            </ui:AssignOperation>
-          </scg:List>
-        </ui:MultipleAssign.AssignOperations>
-      </ui:MultipleAssign>
+      <ui:GetRobotAsset AssetName="RobotGLaDOS-ConfigFile" CacheStrategy="None" DisplayName="Get Asset RobotGLaDOS-ConfigFile" FolderPath="RobotGLaDOS" sap:VirtualizedContainerService.HintSize="338,347" sap2010:WorkflowViewState.IdRef="GetRobotAsset_1" TimeoutMS="10000">
+        <ui:GetRobotAsset.Value>
+          <OutArgument x:TypeArguments="x:String">[strConfigFilePath]</OutArgument>
+        </ui:GetRobotAsset.Value>
+      </ui:GetRobotAsset>
+      <ui:GetRobotAsset AssetName="ConfigFileSheetNameData" CacheStrategy="None" DisplayName="Get Asset ConfigFileSheetNameData" FolderPath="RobotGLaDOS" sap:VirtualizedContainerService.HintSize="338,347" sap2010:WorkflowViewState.IdRef="GetRobotAsset_2" TimeoutMS="10000">
+        <ui:GetRobotAsset.Value>
+          <OutArgument x:TypeArguments="x:String">[strConfigFileSheetNameData]</OutArgument>
+        </ui:GetRobotAsset.Value>
+      </ui:GetRobotAsset>
+      <ui:GetRobotAsset AssetName="ConfigFileSheetNameMessages" CacheStrategy="None" DisplayName="Get Asset ConfigFileSheetNameMessages" FolderPath="RobotGLaDOS" sap:VirtualizedContainerService.HintSize="338,347" sap2010:WorkflowViewState.IdRef="GetRobotAsset_3" TimeoutMS="10000">
+        <ui:GetRobotAsset.Value>
+          <OutArgument x:TypeArguments="x:String">[strConfigFileSheetNameMessages]</OutArgument>
+        </ui:GetRobotAsset.Value>
+      </ui:GetRobotAsset>
     </Sequence>
-    <Sequence DisplayName="Sequence Configuration" sap:VirtualizedContainerService.HintSize="493,244" sap2010:WorkflowViewState.IdRef="Sequence_3">
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ReadConfigFile.xaml - Invoke Workflow File ReadConfigFile" sap:VirtualizedContainerService.HintSize="338,122" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Framework\ReadConfigFile.xaml">
-        <ui:InvokeWorkflowFile.Arguments>
-          <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_DataTableMessages">
-            <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="dt_Messages" />
-          </OutArgument>
-          <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_DataTableConfigData">
-            <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="dt_ConfigData" />
-          </OutArgument>
-          <InArgument x:TypeArguments="x:String" x:Key="in_StrConfigSheetNameData">
-            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="strConfigSheetNameData" />
-          </InArgument>
-          <InArgument x:TypeArguments="x:String" x:Key="in_StrConfigSheetNameMessages">
-            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="strConfigSheetNameMessages" />
-          </InArgument>
-          <InArgument x:TypeArguments="x:String" x:Key="in_StrConfigFilePath">
-            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="strConfigFilePath" />
-          </InArgument>
-        </ui:InvokeWorkflowFile.Arguments>
-      </ui:InvokeWorkflowFile>
-    </Sequence>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="LogMessage.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="493,122" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Framework\LogMessage.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ReadConfigFile.xaml - Invoke Workflow File ReadConfigFile.xaml" sap:VirtualizedContainerService.HintSize="400,122" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Framework\ReadConfigFile.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:Int32" x:Key="in_IntIdentifier">
-          <Literal x:TypeArguments="x:Int32" Value="1" />
+        <InArgument x:TypeArguments="x:String" x:Key="in_StrConfigFilePath">[strConfigFilePath]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_StrConfigFileSheetNameData">[strConfigFileSheetNameData]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_StrConfigFileSheetNameMessages">[strConfigFileSheetNameMessages]</InArgument>
+        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_DataTableConfigData">[dt_ConfigData]</OutArgument>
+        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_DataTableMessages">[dt_Messages]</OutArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ProcessArbiter.xaml - Invoke Workflow File ProcessArbiter.xaml" sap:VirtualizedContainerService.HintSize="400,122" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="ProcessArbiter.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="sd:DataTable" x:Key="in_DataTableConfigData">
+          <VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="dt_ConfigData" />
         </InArgument>
         <InArgument x:TypeArguments="sd:DataTable" x:Key="in_DataTableMessages">
           <VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="dt_Messages" />
         </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_StrLogLevel">
-          <Literal x:TypeArguments="x:String">Info</Literal>
-        </InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:LogMessage DisplayName="Log Message RobotGLaDOS.Main.End;" sap:VirtualizedContainerService.HintSize="493,101" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Trace" Message="[&quot;RobotGLaDOS.Main.End;&quot;]" />
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Test logging statement: This is row 1, Id 0." DisplayName="LogMessage.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="400,153" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Framework\LogMessage.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:Int32" x:Key="in_IntIdentifier">0</InArgument>
+        <InArgument x:TypeArguments="sd:DataTable" x:Key="in_DataTableMessages">[dt_Messages]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_StrLogLevel">Info</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:InvokeWorkflowFile>
+    <ui:LogMessage DisplayName="Log Message RobotGLaDOS.Main.End;" sap:VirtualizedContainerService.HintSize="400,101" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Trace" Message="[&quot;RobotGLaDOS.Main.End;&quot;]" />
   </Sequence>
 </Activity>
