@@ -1,7 +1,6 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="LogMessage" this:LogMessage.in_IntIdentifier="0" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="LogMessage" this:LogMessage.in_IntIdentifier="0" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_IntIdentifier" Type="InArgument(x:Int32)" />
-    <x:Property Name="in_DataTableMessages" Type="InArgument(sd:DataTable)" />
     <x:Property Name="in_StrLogLevel" Type="InArgument(x:String)" />
   </x:Members>
   <this:LogMessage.in_StrLogLevel>
@@ -12,7 +11,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1099,1579</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1115,2051</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>LogMessage_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="28">
@@ -47,7 +46,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="40">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="80">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>System.Private.CoreLib</AssemblyReference>
@@ -87,6 +86,11 @@
       <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
       <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
       <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>System.CodeDom</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <sap:WorkflowViewStateService.ViewState>
@@ -94,28 +98,54 @@
       <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence DisplayName="LogMessage" sap:VirtualizedContainerService.HintSize="641,1500" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="LogMessage" sap:VirtualizedContainerService.HintSize="679,1986" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <If Condition="[in_IntIdentifier &lt; 0]" DisplayName="If Valid Identifier" sap:VirtualizedContainerService.HintSize="579,1378" sap2010:WorkflowViewState.IdRef="If_1">
-      <If.Then>
-        <Throw DisplayName="Throw Invalid Identifier" Exception="[New Exception(&quot;The LogMessage identifier is invalid.&quot;)]" sap:VirtualizedContainerService.HintSize="334,97" sap2010:WorkflowViewState.IdRef="Throw_2" />
-      </If.Then>
-      <If.Else>
-        <Switch x:TypeArguments="x:String" DisplayName="Switch Log Level" Expression="[in_StrLogLevel]" sap:VirtualizedContainerService.HintSize="497,1115" sap2010:WorkflowViewState.IdRef="Switch`1_2">
-          <Switch.Default>
-            <ui:LogMessage DisplayName="LogMessage Default Info" sap:VirtualizedContainerService.HintSize="334,101" sap2010:WorkflowViewState.IdRef="LogMessage_14" Level="Info" Message="[in_DataTableMessages.Rows(in_IntIdentifier).Item(1).ToString]" />
-          </Switch.Default>
-          <ui:LogMessage x:Key="&quot;Fatal&quot;" DisplayName="LogMessage Fatal" sap:VirtualizedContainerService.HintSize="334,101" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Fatal" Message="[in_DataTableMessages.Rows(in_IntIdentifier).Item(1).ToString]" />
-          <ui:LogMessage x:Key="&quot;Error&quot;" DisplayName="LogMessage Error" sap:VirtualizedContainerService.HintSize="334,101" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Error" Message="[in_DataTableMessages.Rows(in_IntIdentifier).Item(1).ToString]" />
-          <ui:LogMessage x:Key="&quot;Warn&quot;" DisplayName="LogMessage Warning" sap:VirtualizedContainerService.HintSize="334,101" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Warn" Message="[in_DataTableMessages.Rows(in_IntIdentifier).Item(1).ToString]" />
-          <ui:LogMessage x:Key="&quot;Info&quot;" DisplayName="LogMessage Info" sap:VirtualizedContainerService.HintSize="334,101" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="Info" Message="[in_DataTableMessages.Rows(in_IntIdentifier).Item(1).ToString]" />
-          <ui:LogMessage x:Key="&quot;Trace&quot;" DisplayName="LogMessage Trace" sap:VirtualizedContainerService.HintSize="334,101" sap2010:WorkflowViewState.IdRef="LogMessage_13" Level="Trace" Message="[in_DataTableMessages.Rows(in_IntIdentifier).Item(1).ToString]" />
-        </Switch>
-      </If.Else>
-    </If>
+    <TryCatch DisplayName="Try Catch Log Message Base" sap:VirtualizedContainerService.HintSize="617,1864" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+      <TryCatch.Try>
+        <If Condition="[in_IntIdentifier &lt; 0]" DisplayName="If Valid Identifier" sap:VirtualizedContainerService.HintSize="579,1378" sap2010:WorkflowViewState.IdRef="If_1">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <If.Then>
+            <Throw DisplayName="Throw Invalid Identifier" Exception="[New Exception(&quot;The LogMessage identifier is invalid.&quot;)]" sap:VirtualizedContainerService.HintSize="334,97" sap2010:WorkflowViewState.IdRef="Throw_2" />
+          </If.Then>
+          <If.Else>
+            <Switch x:TypeArguments="x:String" DisplayName="Switch Log Level" Expression="[in_StrLogLevel]" sap:VirtualizedContainerService.HintSize="497,1115" sap2010:WorkflowViewState.IdRef="Switch`1_2">
+              <Switch.Default>
+                <ui:LogMessage DisplayName="LogMessage Default Info" sap:VirtualizedContainerService.HintSize="334,101" sap2010:WorkflowViewState.IdRef="LogMessage_14" Level="Info" Message="[&quot;The default switch case has been hit in the LogMessage.xaml. &quot; + dt_Messages.Rows(in_IntIdentifier).Item(1).ToString]" />
+              </Switch.Default>
+              <ui:LogMessage x:Key="Fatal" DisplayName="LogMessage Fatal" sap:VirtualizedContainerService.HintSize="334,101" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Fatal" Message="[dt_Messages.Rows(in_IntIdentifier).Item(1).ToString]" />
+              <ui:LogMessage x:Key="Error" DisplayName="LogMessage Error" sap:VirtualizedContainerService.HintSize="334,101" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Error" Message="[dt_Messages.Rows(in_IntIdentifier).Item(1).ToString]" />
+              <ui:LogMessage x:Key="Warn" DisplayName="LogMessage Warning" sap:VirtualizedContainerService.HintSize="334,101" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Warn" Message="[dt_Messages.Rows(in_IntIdentifier).Item(1).ToString]" />
+              <ui:LogMessage x:Key="Info" DisplayName="LogMessage Info" sap:VirtualizedContainerService.HintSize="334,101" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="Info" Message="[dt_Messages.Rows(in_IntIdentifier).Item(1).ToString]" />
+              <ui:LogMessage x:Key="Trace" DisplayName="LogMessage Trace" sap:VirtualizedContainerService.HintSize="334,101" sap2010:WorkflowViewState.IdRef="LogMessage_13" Level="Trace" Message="[dt_Messages.Rows(in_IntIdentifier).Item(1).ToString]" />
+            </Switch>
+          </If.Else>
+        </If>
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="583,166" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ActivityAction x:TypeArguments="s:Exception">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+            </ActivityAction.Argument>
+            <Throw DisplayName="Throw Message System Exception" Exception="[New Exception(&quot;There was an exception in the message system.&quot; + Environment.NewLine + &quot;Exception Message: &quot; + exception.Message + Environment.NewLine + &quot;Exception Source: &quot; + exception.Source)]" sap:VirtualizedContainerService.HintSize="334,97" sap2010:WorkflowViewState.IdRef="Throw_3" />
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+    </TryCatch>
   </Sequence>
 </Activity>

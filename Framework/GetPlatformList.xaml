@@ -1,12 +1,11 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="GetPlatformList" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:uasc="clr-namespace:UiPath.Activities.System.Collections;assembly=UiPath.System.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property Name="in_DataTableConfigData" Type="InArgument(sd:DataTable)" />
     <x:Property Name="out_ListPlatforms" Type="OutArgument(scg:List(x:String))" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>1115,1838</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1115,2078</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="46">
+    <scg:List x:TypeArguments="x:String" Capacity="26">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System</x:String>
@@ -32,10 +31,11 @@
       <x:String>UiPath.Core</x:String>
       <x:String>GlobalVariablesNamespace</x:String>
       <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>UiPath.Activities.System.Collections</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="64">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="47">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>System.Private.CoreLib</AssemblyReference>
@@ -84,7 +84,10 @@
       <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="This sequence filters the platforms into a list." DisplayName="GetPlatformList" sap:VirtualizedContainerService.HintSize="496,1285" sap2010:WorkflowViewState.IdRef="Sequence_3">
+  <Sequence sap2010:Annotation.AnnotationText="This workflow takes a data table and filters the platforms into a list." DisplayName="GetPlatformList" sap:VirtualizedContainerService.HintSize="640,2013" sap2010:WorkflowViewState.IdRef="Sequence_3">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="sd:DataTable" Name="dtConfigPlatformsLocal" />
+    </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -92,7 +95,39 @@
         <x:Boolean x:Key="IsPinned">False</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:FilterDataTable DataTable="[in_DataTableConfigData]" DisplayName="Filter Data Table Keep Platform Column" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="434,170" sap2010:WorkflowViewState.IdRef="FilterDataTable_2" OutputDataTable="[in_DataTableConfigData]" SelectColumnsMode="Keep">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Framework\LogMessage.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="578,122" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Framework\LogMessage.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:Int32" x:Key="in_IntIdentifier">
+          <Literal x:TypeArguments="x:Int32" Value="1" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_StrLogLevel">
+          <Literal x:TypeArguments="x:String">Info</Literal>
+        </InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:MultipleAssign DisplayName="Multiple Assign Initialization" sap:VirtualizedContainerService.HintSize="578,141" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+      <ui:MultipleAssign.AssignOperations>
+        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="sd:DataTable">[dtConfigPlatformsLocal]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="sd:DataTable">[dt_ConfigPlatforms]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="scg:List(x:String)">[out_ListPlatforms]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="scg:List(x:String)">[New List(Of String)]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+        </scg:List>
+      </ui:MultipleAssign.AssignOperations>
+    </ui:MultipleAssign>
+    <ui:FilterDataTable DataTable="[dtConfigPlatformsLocal]" DisplayName="Filter Data Table Keep Platform Column" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="578,170" sap2010:WorkflowViewState.IdRef="FilterDataTable_2" OutputDataTable="[dtConfigPlatformsLocal]" SelectColumnsMode="Keep">
       <ui:FilterDataTable.Filters>
         <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
           <ui:FilterOperationArgument Column="{x:Null}" Operand="{x:Null}" BooleanOperator="And" Operator="LT" />
@@ -104,15 +139,15 @@
         </scg:List>
       </ui:FilterDataTable.SelectColumns>
     </ui:FilterDataTable>
-    <ui:RemoveDuplicateRows DataTable="[in_DataTableConfigData]" DisplayName="Remove Duplicate Rows Platform" sap:VirtualizedContainerService.HintSize="434,89" sap2010:WorkflowViewState.IdRef="RemoveDuplicateRows_1" OutputDataTable="[in_DataTableConfigData]" />
-    <ui:SortDataTable ColumnName="{x:Null}" DataColumn="{x:Null}" ColumnIndex="[0]" DataTable="[in_DataTableConfigData]" DisplayName="Sort Data Table Platform" sap:VirtualizedContainerService.HintSize="434,89" sap2010:WorkflowViewState.IdRef="SortDataTable_1" Order="Ascending" OutputDataTable="[in_DataTableConfigData]" SortOrder="Ascending" />
-    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[in_DataTableConfigData]" DisplayName="For Each Row in Data Table Platform Filtered" sap:VirtualizedContainerService.HintSize="434,664" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+    <ui:RemoveDuplicateRows DataTable="[dtConfigPlatformsLocal]" DisplayName="Remove Duplicate Rows Platform" sap:VirtualizedContainerService.HintSize="578,89" sap2010:WorkflowViewState.IdRef="RemoveDuplicateRows_1" OutputDataTable="[dtConfigPlatformsLocal]" />
+    <ui:SortDataTable ColumnName="{x:Null}" DataColumn="{x:Null}" ColumnIndex="[0]" DataTable="[dtConfigPlatformsLocal]" DisplayName="Sort Data Table Platform" sap:VirtualizedContainerService.HintSize="578,89" sap2010:WorkflowViewState.IdRef="SortDataTable_1" Order="Ascending" OutputDataTable="[dtConfigPlatformsLocal]" SortOrder="Ascending" />
+    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dtConfigPlatformsLocal]" DisplayName="For Each Row in Data Table Platform Filtered" sap:VirtualizedContainerService.HintSize="578,1049" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body Platform Filtered" sap:VirtualizedContainerService.HintSize="400,539" sap2010:WorkflowViewState.IdRef="Sequence_6">
+          <Sequence DisplayName="Body Platform Filtered" sap:VirtualizedContainerService.HintSize="544,924" sap2010:WorkflowViewState.IdRef="Sequence_6">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="strCellValue" />
             </Sequence.Variables>
@@ -121,18 +156,29 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:GetRowItem Column="{x:Null}" ColumnName="{x:Null}" ColumnIndex="0" DisplayName="Get Row Item Platform Filtered" sap:VirtualizedContainerService.HintSize="338,196" sap2010:WorkflowViewState.IdRef="GetRowItem_1" Row="[CurrentRow]">
+            <ui:GetRowItem Column="{x:Null}" ColumnName="{x:Null}" ColumnIndex="0" DisplayName="Get Row Item Platform Filtered" sap:VirtualizedContainerService.HintSize="482,196" sap2010:WorkflowViewState.IdRef="GetRowItem_1" Row="[CurrentRow]">
               <ui:GetRowItem.Value>
                 <OutArgument x:TypeArguments="x:String">[strCellValue]</OutArgument>
               </ui:GetRowItem.Value>
             </ui:GetRowItem>
-            <uasc:AppendItemToCollection x:TypeArguments="x:String" Collection="[out_ListPlatforms]" DisplayName="Append item to collection Platform Filtered" sap:VirtualizedContainerService.HintSize="338,181" sap2010:WorkflowViewState.IdRef="AppendItemToCollection`1_4" Result="[out_ListPlatforms]">
-              <uasc:AppendItemToCollection.Items>
-                <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
-                  <InArgument x:TypeArguments="x:String">[strCellValue]</InArgument>
-                </scg:List>
-              </uasc:AppendItemToCollection.Items>
-            </uasc:AppendItemToCollection>
+            <If Condition="[strCellValue.Equals(&quot;&quot;) = False]" DisplayName="If strCellValue Not Empty" sap:VirtualizedContainerService.HintSize="482,566" sap2010:WorkflowViewState.IdRef="If_1">
+              <If.Then>
+                <Sequence DisplayName="Sequence Add Platform To List" sap:VirtualizedContainerService.HintSize="400,303" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uasc:AppendItemToCollection x:TypeArguments="x:String" Collection="[out_ListPlatforms]" DisplayName="Append item to collection Platform Filtered" sap:VirtualizedContainerService.HintSize="338,181" sap2010:WorkflowViewState.IdRef="AppendItemToCollection`1_4" Result="[out_ListPlatforms]">
+                    <uasc:AppendItemToCollection.Items>
+                      <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
+                        <InArgument x:TypeArguments="x:String">[strCellValue]</InArgument>
+                      </scg:List>
+                    </uasc:AppendItemToCollection.Items>
+                  </uasc:AppendItemToCollection>
+                </Sequence>
+              </If.Then>
+            </If>
           </Sequence>
         </ActivityAction>
       </ui:ForEachRow.Body>

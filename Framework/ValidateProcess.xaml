@@ -22,7 +22,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1115,2542</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1115,2325</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ValidateProcess_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="52">
@@ -57,7 +57,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="31">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="62">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>System.Private.CoreLib</AssemblyReference>
@@ -88,6 +88,7 @@
       <AssemblyReference>netstandard</AssemblyReference>
       <AssemblyReference>UiPath.OrchestratorClient</AssemblyReference>
       <AssemblyReference>Microsoft.Rest.ClientRuntime</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <sap:WorkflowViewStateService.ViewState>
@@ -95,7 +96,7 @@
       <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence sap2010:Annotation.AnnotationText="Validates if a process is running.  If the process is not running it will run the process." DisplayName="ValidateProcess" sap:VirtualizedContainerService.HintSize="740,2477" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Validates if a process is running.  If the process is not running it will run the process." DisplayName="ValidateProcess" sap:VirtualizedContainerService.HintSize="740,2260" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sco:Collection(sd:Process)" Name="listProcesses" />
       <Variable x:TypeArguments="x:Boolean" Default="False" Name="booleanIsRunning" />
@@ -106,38 +107,6 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:MultipleAssign DisplayName="DEBUGGING" sap:VirtualizedContainerService.HintSize="678,172" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
-      <ui:MultipleAssign.AssignOperations>
-        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
-          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
-            <ui:AssignOperation.To>
-              <OutArgument x:TypeArguments="x:String">[in_StrProcessArguments]</OutArgument>
-            </ui:AssignOperation.To>
-            <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="x:String">
-                <Literal x:TypeArguments="x:String" Value="" />
-              </InArgument>
-            </ui:AssignOperation.Value>
-          </ui:AssignOperation>
-          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
-            <ui:AssignOperation.To>
-              <OutArgument x:TypeArguments="x:String">[in_StrProcessName]</OutArgument>
-            </ui:AssignOperation.To>
-            <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="x:String">GalaxyClient</InArgument>
-            </ui:AssignOperation.Value>
-          </ui:AssignOperation>
-          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
-            <ui:AssignOperation.To>
-              <OutArgument x:TypeArguments="x:String">[in_StrProcessPath]</OutArgument>
-            </ui:AssignOperation.To>
-            <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="x:String">G:\GalaxyClient\GOG Galaxy\GalaxyClient.exe</InArgument>
-            </ui:AssignOperation.Value>
-          </ui:AssignOperation>
-        </scg:List>
-      </ui:MultipleAssign.AssignOperations>
-    </ui:MultipleAssign>
     <Assign DisplayName="Assign booleanIsRunning False" sap:VirtualizedContainerService.HintSize="678,70" sap2010:WorkflowViewState.IdRef="Assign_2">
       <Assign.To>
         <OutArgument x:TypeArguments="x:Boolean">[booleanIsRunning]</OutArgument>
@@ -146,12 +115,9 @@
         <InArgument x:TypeArguments="x:Boolean">False</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:InterruptibleWhile CurrentIndex="{x:Null}" Condition="[booleanIsRunning = False]" DisplayName="While booleanIsRunning == False" sap:VirtualizedContainerService.HintSize="678,2002" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_2">
+    <ui:InterruptibleWhile CurrentIndex="{x:Null}" Condition="[booleanIsRunning = False]" DisplayName="While booleanIsRunning == False" sap:VirtualizedContainerService.HintSize="678,1997" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_2">
       <ui:InterruptibleWhile.Body>
-        <Sequence DisplayName="Body booleanIsRunning == False" sap:VirtualizedContainerService.HintSize="642,1827" sap2010:WorkflowViewState.IdRef="Sequence_15">
-          <Sequence.Variables>
-            <Variable x:TypeArguments="sd:Process" Name="processMatch" />
-          </Sequence.Variables>
+        <Sequence DisplayName="Body booleanIsRunning == False" sap:VirtualizedContainerService.HintSize="642,1822" sap2010:WorkflowViewState.IdRef="Sequence_15">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -186,7 +152,7 @@
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:LogMessage DisplayName="Log Message Process Running" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Trace" Message="[in_StrProcessName + &quot; successfully detected as running.&quot;]" />
+                        <ui:LogMessage DisplayName="Log Message Detected Process Running" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Trace" Message="[in_StrProcessName + &quot; successfully detected as running.&quot;]" />
                         <ui:Break DisplayName="Break Workflow" sap:VirtualizedContainerService.HintSize="338,32" sap2010:WorkflowViewState.IdRef="Break_2" />
                       </Sequence>
                     </If.Then>
@@ -202,15 +168,15 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:ForEach>
-          <If Condition="[booleanIsRunning = False]" DisplayName="If Start Process Check" sap:VirtualizedContainerService.HintSize="580,628" sap2010:WorkflowViewState.IdRef="If_6">
+          <If Condition="[booleanIsRunning = False]" DisplayName="If Start Process Check" sap:VirtualizedContainerService.HintSize="580,623" sap2010:WorkflowViewState.IdRef="If_6">
             <If.Then>
-              <Sequence DisplayName="Sequence Start Process" sap:VirtualizedContainerService.HintSize="400,362" sap2010:WorkflowViewState.IdRef="Sequence_21">
+              <Sequence DisplayName="Sequence Start Process" sap:VirtualizedContainerService.HintSize="400,360" sap2010:WorkflowViewState.IdRef="Sequence_21">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:LogMessage DisplayName="Log Message Process Running" sap:VirtualizedContainerService.HintSize="338,103" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Trace" Message="[&quot;Starting process &quot; + in_StrProcessName + &quot;.&quot;]" />
+                <ui:LogMessage DisplayName="Log Message Process Started Successfully" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Trace" Message="[&quot;Starting process &quot; + in_StrProcessName + &quot;.&quot;]" />
                 <ui:StartProcess WorkingDirectory="{x:Null}" Arguments="[in_StrProcessArguments]" DisplayName="Start Process Argument" FileName="[in_StrProcessPath]" sap:VirtualizedContainerService.HintSize="338,97" sap2010:WorkflowViewState.IdRef="StartProcess_4" />
               </Sequence>
             </If.Then>
