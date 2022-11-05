@@ -1,0 +1,228 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="GOGGalaxy" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1115,2074" sap2010:WorkflowViewState.IdRef="GOGGalaxy_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="80">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.CV</x:String>
+      <x:String>UiPath.Shared.ObjectLibrary</x:String>
+      <x:String>UiPath.CV.Activities</x:String>
+      <x:String>UiPath.CV.Activities.Interfaces</x:String>
+      <x:String>UiPath.Vision.OCR</x:String>
+      <x:String>UiPath.OCR.Contracts</x:String>
+      <x:String>UiPath.OCR.Activities</x:String>
+      <x:String>UiPath.OCR.Contracts.Activities</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="108">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
+      <AssemblyReference>UiPath.CV.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Core</AssemblyReference>
+      <AssemblyReference>UiPath.Vision.Core</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Contracts</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Diagnostics.Process</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap:VirtualizedContainerService.HintSize="606,2009" sap2010:WorkflowViewState.IdRef="Sequence_8">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Sequence DisplayName="Sequence Initialization" sap:VirtualizedContainerService.HintSize="544,263" sap2010:WorkflowViewState.IdRef="Sequence_3">
+      <Sequence.Variables>
+        <Variable x:TypeArguments="x:String" Name="strFilePath" />
+        <Variable x:TypeArguments="x:String" Name="strWorkflowName" />
+      </Sequence.Variables>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:MultipleAssign DisplayName="Multiple Assign Initialization" sap:VirtualizedContainerService.HintSize="431,141" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+        <ui:MultipleAssign.AssignOperations>
+          <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:String">[strFilePath]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:String">
+                  <Literal x:TypeArguments="x:String" Value="" />
+                </InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:String">[strWorkflowName]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:String">GOGGalaxy</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+          </scg:List>
+        </ui:MultipleAssign.AssignOperations>
+      </ui:MultipleAssign>
+    </Sequence>
+    <Sequence DisplayName="Sequence GOG Galaxy Client" sap:VirtualizedContainerService.HintSize="544,1584" sap2010:WorkflowViewState.IdRef="Sequence_2">
+      <Sequence.Variables>
+        <Variable x:TypeArguments="x:Boolean" Default="False" Name="booleanExistsGOGGalaxy" />
+        <Variable x:TypeArguments="ui:UiElement" Name="elementGOGGalaxyAnchor" />
+      </Sequence.Variables>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Application:  GOG Galaxy 2.0.55  " sap:VirtualizedContainerService.HintSize="482,651" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" ScopeGuid="c901e6fc-8f64-4f9e-bb8c-ae043f86870d" Version="V2">
+        <uix:NApplicationCard.Body>
+          <ActivityAction x:TypeArguments="x:Object">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="Do Client Detection" sap:VirtualizedContainerService.HintSize="400,351" sap2010:WorkflowViewState.IdRef="Sequence_6">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:WaitUiElementAppear WaitActive="{x:Null}" DisplayName="Find Element 'SPAN'" FoundElement="[elementGOGGalaxyAnchor]" sap:VirtualizedContainerService.HintSize="338,116" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_2" WaitVisible="False">
+                <ui:WaitUiElementAppear.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7d862d10-24a5-4e91-9332-6dfadea4fd5f" InformativeScreenshot="4111fbd6ccea2e92e322c53cfd00eb8e" Selector="&lt;ctrl name='GOG Galaxy' role='document' /&gt;&lt;ctrl name='GOG GALAXY' role='text' /&gt;">
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                    <ui:Target.WaitForReady>
+                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                    </ui:Target.WaitForReady>
+                  </ui:Target>
+                </ui:WaitUiElementAppear.Target>
+              </ui:WaitUiElementAppear>
+              <Assign sap:VirtualizedContainerService.HintSize="338,71" sap2010:WorkflowViewState.IdRef="Assign_1">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:Boolean">[booleanExistsGOGGalaxy]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:Boolean">[elementGOGGalaxyAnchor.IsValid]</InArgument>
+                </Assign.Value>
+              </Assign>
+            </Sequence>
+          </ActivityAction>
+        </uix:NApplicationCard.Body>
+        <uix:NApplicationCard.TargetApp>
+          <uix:TargetApp Area="2508, 485, 1170, 650" FilePath="G:\GalaxyClient\GOG Galaxy\galaxyclient.exe" IconBase64="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" InformativeScreenshot="1b601bba57652dc01633226440a50a7c.png" Selector="&lt;wnd app='galaxyclient.exe' cls='Chrome_WidgetWin_0' title=' GOG Galaxy 2.0.55  ' /&gt;" />
+        </uix:NApplicationCard.TargetApp>
+      </uix:NApplicationCard>
+      <If Condition="[booleanExistsGOGGalaxy]" DisplayName="If GOG Client Loaded" sap:VirtualizedContainerService.HintSize="482,771" sap2010:WorkflowViewState.IdRef="If_1">
+        <If.Then>
+          <Sequence DisplayName="Sequence GOG Client Loaded" sap:VirtualizedContainerService.HintSize="400,385" sap2010:WorkflowViewState.IdRef="Sequence_4">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:LogMessage DisplayName="Log Message GOG Client Loaded" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;GOG Glaxy Client loaded successfully.&quot;]" />
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="GOG_Modules.xaml - Invoke Workflow File GOG_Modules.xaml" sap:VirtualizedContainerService.HintSize="338,122" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Platforms\GOG_Modules.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <scg:Dictionary x:TypeArguments="x:String, Argument" />
+              </ui:InvokeWorkflowFile.Arguments>
+            </ui:InvokeWorkflowFile>
+          </Sequence>
+        </If.Then>
+        <If.Else>
+          <Sequence DisplayName="Sequence !GOG Client Loaded" sap:VirtualizedContainerService.HintSize="400,223" sap2010:WorkflowViewState.IdRef="Sequence_5">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:LogMessage DisplayName="Log Message GOG Error" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;GOG Glaxy Client did not load successfully.&quot;]" />
+          </Sequence>
+        </If.Else>
+      </If>
+    </Sequence>
+  </Sequence>
+</Activity>
